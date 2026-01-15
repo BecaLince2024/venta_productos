@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelota Mágica Flat: Juega sin límites | NOVAMercado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e24791;
+            --accent: #1dff93;
+            --bg: #fafafa;
+            --card: #ffffff;
+            --text: #1a1a2e;
+            --muted: #64748b;
+            --border: #e2e8f0;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .pdp-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        /* HERO */
+        .pdp-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #0f172a 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-content {
+            padding: 2rem;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: #000;
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 0.75rem;
+        }
+        
+        .hero-hook {
+            font-size: 1.15rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-desc {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chip {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 0.4rem 0.9rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+        
+        
+        
+        .hero-image {
+            background: #000;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* SECTIONS */
+        .pdp-section {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        
+        .pdp-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        /* SPECS TABLE */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .specs-table tr {
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .specs-table tr:last-child {
+            border-bottom: none;
+        }
+        
+        .specs-table td {
+            padding: 0.85rem 0;
+        }
+        
+        .spec-name {
+            font-weight: 600;
+            color: var(--text);
+            width: 40%;
+        }
+        
+        .spec-val {
+            color: var(--muted);
+        }
+        
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .faq-item {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        
+        .faq-q {
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        
+        .faq-a {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gal-item {
+            border-radius: 14px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            background: #f1f5f9;
+        }
+        
+        .gal-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gal-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #0f172a 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .cta-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta-sub {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #25D366;
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(37,211,102,0.35);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(37,211,102,0.45);
+        }
+        
+        /* TRUST */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .trust-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg);
+            border-radius: 12px;
+        }
+        
+        .trust-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .trust-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        /* FOOTER */
+        .pdp-footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 640px) {
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="pdp-container">
+        <header class="pdp-hero">
+            <div class="hero-content">
+                <span class="hero-badge">⭐ Mascotas</span>
+                <h1 class="hero-title">Pelota Mágica Flat: Juega sin límites</h1>
+                <p class="hero-hook">Transforma tus juegos con la pelota mágica Flat que hace volar la diversión a un nuevo nivel!</p>
+                <p class="hero-desc">La Pelota Mágica Flat es la solución perfecta para los amantes de los juegos interactivos. Transforma cualquier espacio en un campo de juego, permitiendo a tu mascota correr, saltar y explorar sin límites. Su diseño innovador y su capacidad de inflarse y desinflarse fácilmente hacen que sea perfecta para todas las edades y tamaños de mascotas. ¡Jue</p>
+                <div class="chips"><span class="chip">✓ Juega sin límites</span><span class="chip">✓ Diseño innovador</span><span class="chip">✓ Fácil de inflar y desinflar</span><span class="chip">✓ Adecuado para todas las edades y tamaños</span></div>
+                 
+                
+            </div>
+            <div class="hero-image">
+                <img src="hero.jpg" alt="Pelota Mágica Flat: Juega sin límites" loading="eager">
+            </div>
+        </header>
+        
+        
+        <section class="pdp-section">
+            <h2>📸 Galería</h2>
+            <div class="gallery"><div class="gal-item"><img src="lifestyle.jpg" alt="Pelota Mágica Flat: Juega sin límites" loading="lazy"></div><div class="gal-item"><img src="social.jpg" alt="Pelota Mágica Flat: Juega sin límites" loading="lazy"></div><div class="gal-item"><img src="benefit.jpg" alt="Pelota Mágica Flat: Juega sin límites" loading="lazy"></div><div class="gal-item"><img src="detail.jpg" alt="Pelota Mágica Flat: Juega sin límites" loading="lazy"></div></div>
+        </section>
+        
+        
+        <section class="pdp-section">
+            <h2>📋 Especificaciones</h2>
+            <table class="specs-table"><tbody><tr><td class="spec-name">Material</td><td class="spec-val">Plástico de alta resistencia</td></tr><tr><td class="spec-name">Tamaño</td><td class="spec-val">Adecuado para todas las edades y tamaños</td></tr><tr><td class="spec-name">Colores</td><td class="spec-val">Varios</td></tr></tbody></table>
+        </section>
+        
+        
+        <section class="pdp-section">
+            <h2>💬 Preguntas Frecuentes</h2>
+            <div class="faq-grid"><div class="faq-item">
+                <div class="faq-q">❓ ¿Es segura para mascotas?</div>
+                <div class="faq-a">Sí, está diseñada especialmente para mascotas y cumple con los estándares de seguridad más altos.</div>
+            </div><div class="faq-item">
+                <div class="faq-q">❓ ¿Es fácil de limpiar?</div>
+                <div class="faq-a">Sí, es muy fácil de limpiar y solo requiere un lavado suave con agua y jabón.</div>
+            </div><div class="faq-item">
+                <div class="faq-q">❓ ¿Es adecuada para todas las edades y tamaños?</div>
+                <div class="faq-a">Sí, está diseñada para todas las edades y tamaños de mascotas, desde perros pequeños hasta medianos y grandes.</div>
+            </div></div>
+        </section>
+        
+        <section class="cta-section">
+            <div class="cta-title">¿Te interesa este producto?</div>
+            <div class="cta-sub">Envíos a todo el Perú • Pago contra entrega disponible</div>
+            <a class="cta-btn" href="https://wa.me/51988629803?text=Hola%21%20Me%20interesa%3A%20Pelota%20M%C3%A1gica%20Flat%3A%20Juega%20sin%20l%C3%ADmites" target="_blank" rel="noopener">
+                💬 Consultar por WhatsApp
+            </a>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">📦</div>
+                    <div class="trust-text">Envío seguro</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">✅</div>
+                    <div class="trust-text">Revisa al recibir</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">💳</div>
+                    <div class="trust-text">Pago contra entrega</div>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="pdp-footer">
+            NOVAMercado • Pelota Mágica Flat: Juega sin límites • WhatsApp: 51988629803
+        </footer>
+    </article>
+</body>
+</html>
